@@ -11,20 +11,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
-# def update_user_data(sender,instance,created,update_fields ,**kwargs):
-#     update_fields = []
-#     if change:
-#         if Model.initial['name'] != models.cleaned_data['name']:
-#             update_fields.append('name')
-#             print("name filed is updated {}".format(instance))
-#         elif Model.initial['message'] != models.cleaned_data['message']:
-#             update_fields.append('message')
-#             print("name filed is updated {}".format(instance))
-#         elif Model.initial['file_name'] != models.cleaned_data['file_name']:
-#             update_fields.append('message')
-#             print("name filed is updated {}".format(instance))
-#     else:
-#         print("sorry you have do nothing change")
+
 @receiver(pre_save, sender=Product)
 def created_user_data(sender,instance,update_fields, **kwargs):
     if instance.id is None:
