@@ -27,5 +27,6 @@ def created_user_data(sender,instance,update_fields, **kwargs):
             print("your object name  and  message is change {}".format(instance.message))
         elif product.file_name != instance.file_name:
             print("your object name  and  message is change {}".format(instance.file_name))
+        elif product.name != instance.name and product.message != instance.message and product.file_name != instance.file_name:
+            print("you have change your charfiled and filefiled and textfiled {}".format(instance.name))
 pre_save.connect(created_user_data,sender=Product)
-post_save.connect(created_user_data,sender=Product)
